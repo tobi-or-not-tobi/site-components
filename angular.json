@@ -125,6 +125,86 @@
           }
         }
       }
+    },
+    "count-down": {
+      "root": "projects/count-down",
+      "sourceRoot": "projects/count-down/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/count-down/tsconfig.lib.json",
+            "project": "projects/count-down/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/count-down/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/count-down/src/test.ts",
+            "tsConfig": "projects/count-down/tsconfig.spec.json",
+            "karmaConfig": "projects/count-down/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/count-down/tsconfig.lib.json",
+              "projects/count-down/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "event-components": {
+      "root": "projects/event-components",
+      "sourceRoot": "projects/event-components/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/event-components/tsconfig.lib.json",
+            "project": "projects/event-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/event-components/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/event-components/src/test.ts",
+            "tsConfig": "projects/event-components/tsconfig.spec.json",
+            "karmaConfig": "projects/event-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/event-components/tsconfig.lib.json",
+              "projects/event-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "site-components"
