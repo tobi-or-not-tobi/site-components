@@ -1,14 +1,6 @@
-import {
-    Component,
-    Input,
-    OnInit,
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    OnDestroy
-} from '@angular/core';
+import { Component, Input, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, OnDestroy } from '@angular/core';
 import { TimerService } from '../timer.service';
-import { CountdownType } from 'event-components';
+import { CountdownType } from '../countdown.model';
 import { Subscription } from 'rxjs';
 
 @Component({
