@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    lib-countdown-circle {
+        box-sizing: content-box;
+    }
+}

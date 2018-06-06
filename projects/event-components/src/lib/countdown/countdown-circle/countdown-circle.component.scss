@@ -1,0 +1,63 @@
+// we use custom properties (css variables) on the host element,
+// so that library consumers can change them outside in order to control the style of this component
+// for colors we fallback to the currentColor, so that component users can set the standard color property
+// for font size we use the em unit, so that the component consumer can set the baseline font-size
+
+:host {
+    --lib-text-color: var(--text-color, currentColor);
+    --lib-stroke-color: var(--stroke-color, currentColor);
+
+    --lib-stroke-width: var(--stroke-width, 0.9vw);
+    --lib-inbetween-space: var(--inbetween-space, 3vw);
+
+    // the width of this component is driven by the --aspect-ratio
+    // which is set by the component logic
+    width: calc((var(--aspect-ratio) * 1px) - var(--lib-inbetween-space));
+    height: calc((var(--aspect-ratio) * 1px) - var(--lib-inbetween-space));
+}
+
+svg {
+    margin-top: calc(var(--lib-stroke-width) * -0.5);
+    margin-left: calc(var(--lib-stroke-width) * -0.5);
+    padding: var(--lib-stroke-width);
+    width: calc(100% - var(--lib-stroke-width));
+    height: calc(100% - var(--lib-stroke-width));
+    transform: rotate(270deg);
+}
+
+.radial-progress-background {
+    stroke: var(--lib-stroke-color);
+    stroke-width: 1px;
+    stroke-dasharray: 1px 5px;
+}
+
+.radial-progress-cover {
+    stroke: var(--lib-stroke-color);
+    stroke-width: var(--lib-stroke-width);
+}
+
+.radial-progress-center {
+    fill: transparent;
+}
+
+.countdown-circle-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // calculate negative margin based on stroke width and inbetween margin
+    margin-top: calc(-100% - var(--lib-stroke-width) - (var(--lib-inbetween-space) / 2));
+    height: 100%;
+
+    color: var(--lib-text-color);
+    text-align: center;
+
+    .timeleft {
+        font-size: 3em;
+        font-weight: bold;
+    }
+    .text {
+        font-size: 1em;
+    }
+}

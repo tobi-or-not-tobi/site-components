@@ -2,4 +2,5 @@
  * Public API Surface of event-components
  */
 
-export * from "./lib/count-down/count-down.module";
+export * from './lib/countdown/countdown.module';
+export * from './lib/countdown/countdown.model';

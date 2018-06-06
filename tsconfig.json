@@ -12,8 +12,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "paths": {
-      "event-components": ["projects/event-components/src/public_api"]
-      // "event-components/*": ["projects/event-components/src/lib/*"]
+      "event-components": ["projects/event-components/src/public_api"],
+      "event-components/*": ["projects/event-components/src/public_api/*"]
     }
   }
 }
