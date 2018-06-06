@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  font-family: roboto;
-  font-weight: 100;
-  background: rebeccapurple;
+    font-family: roboto;
+    font-weight: 100;
+    background: rebeccapurple;
+}
+
+lib-countdown {
+    font-size: 2vw;
+    color: hsla(0, 0%, 100%, 0.5);
+    // --stroke-color: white;
+    // --text-color: white;
+    --stroke-width: 0.3vw;
+    --inbetween-space: 10px;
+    > :last-child {
+        color: white;
+    }
 }
