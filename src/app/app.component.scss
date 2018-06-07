@@ -6,3 +6,11 @@
 //     --stroke-width: 0.9vw;
 //     --inbetween-space: 10px;
 // }
+
+lib-navbar {
+    /deep/ nav.navbar.is-fixed-top {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+}
