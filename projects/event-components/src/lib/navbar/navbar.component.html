@@ -1,0 +1,44 @@
+<nav class="navbar is-transparent is-primary" [class.is-fixed-top]="fixed">
+
+  <div class="navbar-brand">
+
+    <a class="navbar-item">logo...</a>
+
+    <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" (click)="openMobileNav()" [class.is-active]="open">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" [class.is-active]="open">
+    <div class="navbar-start">
+      <ng-container *ngTemplateOutlet="menuItems;context:{menuItems: navbarMenu.mainItems}"></ng-container>
+    </div>
+
+    <div class="navbar-end">
+      <ng-container *ngTemplateOutlet="menuItems;context:{menuItems: navbarMenu.subItems}"></ng-container>
+    </div>
+  </div>
+</nav>
+
+<ng-template let-menuItems="menuItems" #menuItems>
+  <div class="navbar-item has-dropdown is-hoverable" *ngFor="let item of menuItems">
+    <ng-container [ngSwitch]="item.childs?.length > 0">
+      <a *ngSwitchCase="false" class="navbar-item">
+        {{item.label}}
+      </a>
+      <ng-container *ngSwitchCase="true">
+        <a class="navbar-link">
+          {{item.label}}
+        </a>
+        <div class="navbar-dropdown is-boxed" *ngIf="item.childs?.length > 0">
+          <a class="navbar-item" *ngFor="let child of item.childs">
+            {{child.label}}
+          </a>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+</ng-template>
