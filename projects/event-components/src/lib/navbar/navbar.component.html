@@ -2,7 +2,9 @@
 
   <div class="navbar-brand">
 
-    <a class="navbar-item">logo...</a>
+    <a class="navbar-item">
+      <ng-content select="logo"></ng-content>
+    </a>
 
     <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" (click)="openMobileNav()" [class.is-active]="open">
       <span aria-hidden="true"></span>

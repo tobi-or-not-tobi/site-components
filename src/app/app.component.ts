@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CountdownType, CellType, Navbar, NavbarMenu, MenuPosition } from 'event-components';
+import { CountdownType, CellType, Navbar, NavbarMenu } from 'event-components';
 
 @Component({
     selector: 'app-root',

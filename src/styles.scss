@@ -1,7 +1,9 @@
 // customize bulma
 @import 'node_modules/bulma/sass/utilities/initial-variables';
 @import 'node_modules/bulma/sass/utilities/functions';
-$primary: #d7df23;
+// $primary: #d7df23;
+$navbar-dropdown-boxed-radius: $radius-small;
+$navbar-dropdown-offset: 0;
 @import 'node_modules/bulma/bulma.sass';
 
 body {
