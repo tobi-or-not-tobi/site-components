@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CountDownModule, NavbarModule } from 'event-components';
+import { CountDownModule, NavbarModule, HeroImageModule, ScrollModule, BackdropModule } from 'event-components';
 import { NewsComponent } from './news/news.component';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -12,12 +12,18 @@ const routes: Routes = [
         component: NewsComponent
     }
 ];
-
 @NgModule({
     declarations: [AppComponent, NewsComponent],
-    imports: [BrowserModule, RouterModule.forRoot(routes), NavbarModule, CountDownModule],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        NavbarModule,
+        HeroImageModule,
+        CountDownModule,
+        ScrollModule,
+        BackdropModule
+    ],
     providers: [],
-    bootstrap: [AppComponent],
-    schemas: [NO_ERRORS_SCHEMA]
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

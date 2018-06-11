@@ -1,9 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
 // customize bulma
 @import 'node_modules/bulma/sass/utilities/initial-variables';
 @import 'node_modules/bulma/sass/utilities/functions';
 // $primary: #d7df23;
 $navbar-dropdown-boxed-radius: $radius-small;
 $navbar-dropdown-offset: 0;
+$primary: #d7df23;
+$navbar-dropdown-boxed-radius: 0; //$radius-small;
+$navbar-dropdown-offset: 0;
+:root {
+    --primary: #{$primary};
+}
 @import 'node_modules/bulma/bulma.sass';
 
 body {
@@ -13,13 +21,14 @@ body {
 }
 
 lib-countdown {
-    font-size: 2vw;
-    color: hsla(0, 0%, 100%, 0.5);
+    // color: hsla(0, 0%, 100%, 0.5);
+    color: white;
     // --stroke-color: white;
     // --text-color: white;
-    --stroke-width: 0.3vw;
+    --stroke-width: 0.5vw;
+    --stroke-dashed-width: 0.5vw;
     --inbetween-space: 10px;
     > :last-child {
-        color: white;
+        color: var(--primary);
     }
 }
