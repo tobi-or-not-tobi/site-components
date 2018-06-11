@@ -10,6 +10,8 @@
     --lib-stroke-width: var(--stroke-width, 0.9vw);
     --lib-inbetween-space: var(--inbetween-space, 3vw);
 
+    --lib-stroke-dashed-width: var(--stroke-dashed-width, 0.1vw);
+
     // the width of this component is driven by the --aspect-ratio
     // which is set by the component logic
     width: calc((var(--aspect-ratio) * 1px) - var(--lib-inbetween-space));
@@ -27,8 +29,8 @@ svg {
 
 .radial-progress-background {
     stroke: var(--lib-stroke-color);
-    stroke-width: 1px;
-    stroke-dasharray: 1px 5px;
+    stroke-width: var(--lib-stroke-dashed-width);
+    stroke-dasharray: 1px 3px;
 }
 
 .radial-progress-cover {

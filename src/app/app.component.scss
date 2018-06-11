@@ -14,3 +14,34 @@ lib-navbar {
         right: 10px;
     }
 }
+
+.hero {
+    padding-top: 60px;
+    position: relative;
+    h1 {
+        color: #fff;
+        font-size: 5vw;
+    }
+
+    /deep/ .backdrop {
+        margin-top: -60px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: #000;
+        opacity: calc(0.4 + (0.01 * var(--scroll)));
+    }
+}
+
+lib-countdown {
+    position: relative;
+    margin: auto auto;
+    width: 60vw;
+    font-size: 1vw;
+
+    opacity: calc(1 - (0.02 * var(--scroll)));
+    @media (max-width: 1024px) {
+        width: 80vw;
+        font-size: 2vw;
+    }
+}
