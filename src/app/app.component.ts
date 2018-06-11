@@ -18,8 +18,7 @@ export class AppComponent {
                 childs: [
                     {
                         label: 'Thema 2018',
-                        href: 'https://www.google.com',
-                        target: '_self'
+                        href: 'https://www.google.com'
                     },
                     {
                         label: 'Programma'
