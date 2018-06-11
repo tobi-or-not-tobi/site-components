@@ -1,5 +1,8 @@
 <lib-navbar [navbarMenu]="navbarMenu">
-    <div class="logo">logo...</div>
+
+    <div class="logo">
+        <a routerLink="/">logoooo</a>
+    </div>
 </lib-navbar>
 
 <div class="hero" scrollProperty heroImageHeight="40vw" backdrop heroImage="//res.cloudinary.com/kfw/image/fetch/c_fill,w_1200,h_500,g_faces/https://farm5.staticflickr.com/4411/36547071860_50303835dc_o.jpg">
@@ -8,4 +11,5 @@
 </div>
 
 <div style="height: 3000px;padding-top:100px;background: red;">
+    <router-outlet></router-outlet>
 </div>

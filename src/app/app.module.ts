@@ -2,12 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
 import { CountDownModule, NavbarModule, HeroImageModule, ScrollModule, BackdropModule } from 'event-components';
+import { NewsComponent } from './news/news.component';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+    {
+        path: '**',
+        component: NewsComponent
+    }
+];
 @NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule, NavbarModule, HeroImageModule, CountDownModule, ScrollModule, BackdropModule],
+    declarations: [AppComponent, NewsComponent],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        NavbarModule,
+        HeroImageModule,
+        CountDownModule,
+        ScrollModule,
+        BackdropModule
+    ],
     providers: [],
     bootstrap: [AppComponent]
 })
