@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CountdownType, CellType, Navbar, NavbarMenu } from 'event-components';
+import { CountdownType, NavbarMenu } from 'event-components';
 
 @Component({
     selector: 'app-root',
@@ -14,9 +14,12 @@ export class AppComponent {
         mainItems: [
             {
                 label: 'News',
+                routerLink: '/news',
                 childs: [
                     {
-                        label: 'Thema 2018'
+                        label: 'Thema 2018',
+                        href: 'https://www.google.com',
+                        target: '_self'
                     },
                     {
                         label: 'Programma'
@@ -43,7 +46,8 @@ export class AppComponent {
         ],
         subItems: [
             {
-                label: 'Organisatie'
+                label: 'Organisatie',
+                href: 'https://www.google.com'
             }
         ]
     };

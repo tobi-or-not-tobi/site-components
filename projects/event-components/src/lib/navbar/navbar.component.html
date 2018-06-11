@@ -27,20 +27,38 @@
 <ng-template let-menuItems="menuItems" #menuItems>
   <div class="navbar-item has-dropdown is-hoverable" *ngFor="let item of menuItems">
     <ng-container [ngSwitch]="item.childs?.length > 0">
-      <a *ngSwitchCase="false" class="navbar-item">
-        {{item.label}}
-      </a>
+      <ng-container *ngSwitchCase="false">
+        <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: item, classList:'navbar-item'}"></ng-container>
+      </ng-container>
       <ng-container *ngSwitchCase="true">
-        <a class="navbar-link">
-          {{item.label}}
-        </a>
-        <div class="navbar-dropdown is-boxed" *ngIf="item.childs?.length > 0">
-          <a class="navbar-item" *ngFor="let child of item.childs">
-            {{child.label}}
-          </a>
-        </div>
+        <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: item, classList:'navbar-link'}"></ng-container>
+        <ng-container *ngIf="item.childs?.length > 0">
+          <div class="navbar-dropdown is-boxed">
+            <ng-container *ngFor="let child of item.childs">
+              <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: child, classList:'navbar-item'}"></ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
       </ng-container>
     </ng-container>
   </div>
+</ng-template>
+
+<ng-template let-menuItem="menuItem" let-classList="classList" #menuItem>
+  <ng-container *ngIf="menuItem.routerLink">
+    <a [class]="classList" [routerLink]="menuItem.routerLink">
+      {{menuItem.label}}
+    </a>
+  </ng-container>
+  <ng-container *ngIf="menuItem.href">
+    <a [class]="classList" [href]="menuItem.href" [target]="menuItem.target ? menuItem.target : '_blank'">
+      {{menuItem.label}}
+    </a>
+  </ng-container>
+  <ng-container *ngIf="!menuItem.routerLink && !menuItem.href">
+    <a [class]="classList">
+      {{menuItem.label}}
+    </a>
+  </ng-container>
 
 </ng-template>

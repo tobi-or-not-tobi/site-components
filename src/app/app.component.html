@@ -1,5 +1,9 @@
 <lib-navbar [navbarMenu]="navbarMenu">
-    <logo>logoooo</logo>
+
+    <logo>
+        <a routerLink="/">logoooo</a>
+    </logo>
+
 </lib-navbar>
 
 <!-- <div style="height: 200px;width:50%;">
@@ -7,4 +11,6 @@
 </div>
 
 <lib-countdown [startDate]="startDate" [types]="[types.MONTHS, types.DAYS, types.HOURS, types.MINS, types.SECS]"></lib-countdown> -->
-<div style="height: 3000px;background: red;">???</div>
+<div style="height: 3000px;padding-top:100px;background: red;">
+    <router-outlet></router-outlet>
+</div>
