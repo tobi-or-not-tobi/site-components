@@ -6,11 +6,11 @@
       <ng-content select=".logo"></ng-content>
     </a>
 
-    <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" (click)="openMobileNav()" [class.is-active]="open">
+    <div role="button" class="navbar-burger " aria-label="menu" aria-expanded="false" (click)="openMobileNav()" [class.is-active]="open">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
-    </a>
+    </div>
   </div>
 
   <div class="navbar-menu" [class.is-active]="open">
@@ -36,7 +36,7 @@
           <div class="navbar-dropdown is-boxed">
             <ng-container *ngFor="let child of item.childs; let last = last">
               <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: child, classList:'navbar-item'}"></ng-container>
-              <hr class="dropdown-divider" *ngIf="!last">
+              <hr class="dropdown-divider is-hidden-touch" *ngIf="!last">
             </ng-container>
           </div>
         </ng-container>
@@ -68,6 +68,10 @@
   <span>
     <strong>{{menuItem.label}}</strong>
     <ng-container *ngIf="menuItem.description">
-      <br/>{{menuItem.description}}</ng-container>
+      <br/>
+      <span class="is-hidden-touch">
+        {{menuItem.description}}
+      </span>
+    </ng-container>
   </span>
 </ng-template>
