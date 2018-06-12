@@ -13,41 +13,22 @@ export class AppComponent {
     navbarMenu: NavbarMenu = {
         mainItems: [
             {
-                label: 'News',
-                routerLink: '/news',
+                label: 'Main Item 1',
+                routerLink: '/main-item-1',
                 childs: [
                     {
-                        label: 'Thema 2018',
-                        href: 'https://www.google.com',
-                        target: '_self'
-                    },
-                    {
-                        label: 'Programma'
-                    },
-                    {
-                        label: 'Inschrijven'
-                    }
-                ]
-            },
-            {
-                label: 'Media',
-                childs: [
-                    {
-                        label: 'Video'
-                    },
-                    {
-                        label: `Foto's`
-                    },
-                    {
-                        label: 'Video'
+                        label: 'child 1',
+                        description: `A description for sub 1, A description for sub 1`,
+                        routerLink: 'link'
                     }
                 ]
             }
         ],
         subItems: [
             {
-                label: 'Organisatie',
-                href: 'https://www.google.com'
+                label: 'Sub item',
+                href: 'https://www.sub-item.com',
+                target: '_blank'
             }
         ]
     };
