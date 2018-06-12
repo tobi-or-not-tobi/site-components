@@ -25,5 +25,10 @@ export class HeroImageDirective implements AfterViewInit {
         element.style.backgroundAttachment = 'fixed';
         element.style.backgroundRepeat = 'no-repeat';
         element.style.backgroundSize = '100%';
+
+        let top = element.getBoundingClientRect().top;
+        // in case we're not at the top of the page we need to subtract the scroll position
+        top -= document.body.getBoundingClientRect().top;
+        element.style.backgroundPositionY = top + 'px';
     }
 }
