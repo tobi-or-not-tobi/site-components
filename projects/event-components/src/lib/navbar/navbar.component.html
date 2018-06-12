@@ -34,8 +34,9 @@
         <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: item, classList:'navbar-link'}"></ng-container>
         <ng-container *ngIf="item.childs?.length > 0">
           <div class="navbar-dropdown is-boxed">
-            <ng-container *ngFor="let child of item.childs">
+            <ng-container *ngFor="let child of item.childs; let last = last">
               <ng-container *ngTemplateOutlet="menuItem;context:{menuItem: child, classList:'navbar-item'}"></ng-container>
+              <hr class="dropdown-divider" *ngIf="!last">
             </ng-container>
           </div>
         </ng-container>
@@ -47,18 +48,26 @@
 <ng-template let-menuItem="menuItem" let-classList="classList" #menuItem>
   <ng-container *ngIf="menuItem.routerLink">
     <a [class]="classList" [routerLink]="menuItem.routerLink">
-      {{menuItem.label}}
+      <ng-container *ngTemplateOutlet="menuItemContent;context:{menuItem: menuItem}"></ng-container>
     </a>
   </ng-container>
   <ng-container *ngIf="menuItem.href">
     <a [class]="classList" [href]="menuItem.href" [target]="menuItem.target ? menuItem.target : '_blank'">
-      {{menuItem.label}}
+      <ng-container *ngTemplateOutlet="menuItemContent;context:{menuItem: menuItem}"></ng-container>
     </a>
   </ng-container>
   <ng-container *ngIf="!menuItem.routerLink && !menuItem.href">
     <a [class]="classList">
-      {{menuItem.label}}
+      <ng-container *ngTemplateOutlet="menuItemContent;context:{menuItem: menuItem}"></ng-container>
     </a>
   </ng-container>
 
+</ng-template>
+
+<ng-template #menuItemContent let-menuItem="menuItem">
+  <span>
+    <strong>{{menuItem.label}}</strong>
+    <ng-container *ngIf="menuItem.description">
+      <br/>{{menuItem.description}}</ng-container>
+  </span>
 </ng-template>
