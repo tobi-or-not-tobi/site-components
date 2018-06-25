@@ -1,15 +1,15 @@
-<lib-navbar [navbarMenu]="navbarMenu">
-
+<lib-navbar [mainMenu]="mainItems" [subMenu]="subItems">
     <div class="logo">
-        <a routerLink="/">logoooo</a>
+        logo
     </div>
 </lib-navbar>
 
-<div class="hero" scrollProperty heroImageHeight="40vw" backdrop heroImage="//res.cloudinary.com/kfw/image/fetch/c_fill,w_1200,h_500,g_faces/https://farm5.staticflickr.com/4411/36547071860_50303835dc_o.jpg">
-    <!-- <h1>This is the title</h1> -->
-    <lib-countdown [startDate]="startDate" [types]="[types.DAYS, types.HOURS, types.MINS, types.SECS]"></lib-countdown>
-</div>
+<br/>
 
-<div style="height: 3000px;padding-top:100px;background: red;">
+<lib-image-gallery [gallery]="gallery" (select)="openImage($event)" [max]="10"></lib-image-gallery>
+
+<lib-image-modal [active]="activeImage" [gallery]="gallery" [config]="{}"></lib-image-modal>
+
+<div style="height: 3000px;padding-top:300px;">
     <router-outlet></router-outlet>
 </div>

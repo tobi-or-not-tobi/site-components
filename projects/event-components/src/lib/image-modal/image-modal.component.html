@@ -1,0 +1,10 @@
+<div class="modal" [class.is-active]="isActive">
+  <div class="modal-background" (click)="close($event)"></div>
+  <div class="modal-content">
+    <p class="image" *ngIf="_image?.large">
+      <img [src]="_image.large" alt="">
+    </p>
+    <lib-image-gallery [gallery]="_gallery" (select)="selectThumb($event)" [selected]="_image"></lib-image-gallery>
+  </div>
+  <button *ngIf="_config.useCloseButton" class="modal-close is-large" aria-label="close" (click)="close()"></button>
+</div>

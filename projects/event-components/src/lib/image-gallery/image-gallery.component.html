@@ -1,0 +1,2 @@
+<img [src]="image.thumb" *ngFor="let image of gallery?.images | slice:start:start+max" (click)="selectThumb(image, $event)"
+  [class.active]="image?.thumb === selected?.thumb">

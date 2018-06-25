@@ -1,0 +1,7 @@
+img {
+    border: solid 1px transparent;
+    cursor: pointer;
+    &.active {
+        border-color: white;
+    }
+}
