@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import * as moment from 'moment';
+import * as moment_ from 'moment';
 import { BehaviorSubject } from 'rxjs';
 
+const moment = moment_;
 const DATETIME_FORMAT = 'DD-MM-YYYY HH:mm:ss';
 const INTERVAL_IN_MS = 1000;
 

@@ -1,17 +1,16 @@
-import { Component, ChangeDetectionStrategy, Input, ElementRef, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, ElementRef, OnChanges, OnInit } from '@angular/core';
 import { TimerService } from '../timer.service';
-import { CountDownModule } from 'event-components';
 import { CountdownType } from '../countdown.model';
-import { Observable, fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
-import { debounceTime, map } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 @Component({
     selector: 'lib-countdown',
     templateUrl: './countdown.component.html',
     styleUrls: ['./countdown.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CountdownComponent implements AfterViewInit, OnChanges {
+export class CountdownComponent implements OnInit, OnChanges {
     @Input() startDate: Date;
     @Input() types: CountdownType[];
 
@@ -23,7 +22,7 @@ export class CountdownComponent implements AfterViewInit, OnChanges {
             .subscribe(() => this.calcWidth());
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
         this.hostHeight = parseInt(window.getComputedStyle(this.element.nativeElement).height);
         this.calcWidth();
     }
