@@ -55,10 +55,12 @@ export class ImageModalComponent {
     }
 
     open() {
+        document.body.style.position = 'fixed';
         this.isActive = true;
     }
 
     close(event?: MouseEvent) {
+        document.body.style.position = 'relative';
         if (event) {
             event.stopPropagation();
             if (event.srcElement.classList.contains('modal-background') && this._config.hideOnBackdrop === false) {
